@@ -1,4 +1,5 @@
 import ClientOnly from "./components/ClientOnly";
+import LoginModal from "./components/Modals/LoginModal";
 import Modal from "./components/Modals/Modal";
 import RegisterModal from "./components/Modals/RegisterModal";
 import Navbar from "./components/Navbar/Navbar";
@@ -23,6 +24,7 @@ export default function RootLayout({
         <ClientOnly>
           <Navbar />
           <RegisterModal />
+          <LoginModal />
         </ClientOnly>
         {children}
       </body>
