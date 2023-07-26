@@ -5,7 +5,6 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
-
 // import useRegisterModal from "@/app/hooks/useRegisterModal";
 // import useRentModal from "@/app/hooks/useRentModal";
 // import { SafeUser } from "@/app/types";
@@ -14,16 +13,15 @@ import MenuItem from "./MenuItem";
 import Avatar from "../Avatar";
 import useRegisterModal from "@/app/hooks/useRegisterModal";
 import useLoginModal from "@/app/hooks/useLoginModal";
+import { SafeUser } from "@/app/types";
 
 interface UserMenuProps {
-  //   currentUser?: SafeUser | null;
-  currentUser?: null;
+  currentUser?: SafeUser | null;
 }
 
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
 
-  
   //   const registerModal = useRegisterModal();
   //   const rentModal = useRentModal();
 
@@ -82,7 +80,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         >
           <AiOutlineMenu />
           <div className="hidden md:block">
-            <Avatar src={"/images/placeholder.jpg"} />
+            <Avatar src={currentUser?.image} />
           </div>
         </div>
       </div>
@@ -126,8 +124,18 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
               </>
             ) : (
               <>
-                <MenuItem label="Login" onClick={loginModal.onOpen} />
-                <MenuItem label="Sign up" onClick={registerModal.onOpen} />
+                <MenuItem
+                  label="Login"
+                  onClick={loginModal.onOpen}
+                  onBlur={toggleOpen}
+                  index={1}
+                />
+                <MenuItem
+                  label="Sign up"
+                  onClick={registerModal.onOpen}
+                  onBlur={toggleOpen}
+                  index={2}
+                />
               </>
             )}
           </div>

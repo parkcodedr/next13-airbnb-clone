@@ -50,7 +50,7 @@ const Input: React.FC<InputProps> = ({
         className={`
           peer
           w-full
-          p-4
+          p-3
           pt-6 
           font-light 
           bg-white 
@@ -62,7 +62,7 @@ const Input: React.FC<InputProps> = ({
           disabled:cursor-not-allowed
           ${formatPrice ? 'pl-9' : 'pl-4'}
           ${errors[id] ? 'border-rose-500' : 'border-neutral-300'}
-          ${errors[id] ? 'focus:border-rose-500' : 'focus:border-black'}
+          ${errors[id] ? 'focus:border-rose-500' : 'focus:border-gray'}
         `}
       />
       <label 
