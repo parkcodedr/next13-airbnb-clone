@@ -121,7 +121,7 @@ const LoginModal = () => {
             "
           >
             {" "}
-            Register
+            Create an account
           </span>
         </p>
       </div>
